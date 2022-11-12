@@ -11,7 +11,7 @@ public class HashTable<K, V> {
     private final List<Entry<K, V>>[] bucket;
 
     public HashTable() {
-        this.bucket = new List<>[DEFAULT_CAPACITY];
+        this.bucket = new List[DEFAULT_CAPACITY];
     }
 
     public void put(K key, V value) {
