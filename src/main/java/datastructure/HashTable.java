@@ -2,7 +2,6 @@ package datastructure;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class HashTable<K, V> {
 
@@ -18,20 +17,25 @@ public class HashTable<K, V> {
         int hashKey = hash(key);
         if (bucket[hashKey] == null) bucket[hashKey] = new ArrayList<>();
 
-        Optional<Entry<K, V>> optionalEntry = bucket[hashKey].stream().filter(entry -> entry.key.equals(key)).findAny();
-        optionalEntry.ifPresent(bucket[hashKey]::remove);
+        for(int i = 0; i < bucket[hashKey].size(); i++) {
+            if(bucket[hashKey].get(i).key.equals(key)) {
+                bucket[hashKey].remove(i);
+                break;
+            }
+        }
+
         bucket[hashKey].add(new Entry<>(key, value));
     }
 
     public V get(K key) {
         int hashKey = hash(key);
-        if (bucket[hashKey] == null) throw new IllegalArgumentException();
+        if (bucket[hashKey] == null) bucket[hashKey] = new ArrayList<>();
 
-        return bucket[hashKey].stream()
-                .filter(entry -> entry.key.equals(key))
-                .findAny()
-                .orElseThrow(IllegalArgumentException::new)
-                .value;
+        for(Entry<K, V> entry : bucket[hashKey]) {
+            if(entry.key.equals(key)) return entry.value;
+        }
+
+        throw new IllegalArgumentException();
     }
 
     private int hash(K key) {
