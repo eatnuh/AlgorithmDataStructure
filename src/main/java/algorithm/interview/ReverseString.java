@@ -56,7 +56,6 @@ public class ReverseString {
         char lastChar = remain.charAt(len - 1);
         remain.deleteCharAt(len - 1);
 
-
         return doReverseByTailRecursionAndStringBuilder(cur.append(lastChar), remain);
     }
 
