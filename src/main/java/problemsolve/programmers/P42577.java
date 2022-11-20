@@ -10,7 +10,7 @@ public class P42577 {
             String before = phone_book[i];
             String after = phone_book[i + 1];
 
-            if(after.startsWith(before)) return false
+            if(after.startsWith(before)) return false;
 
         }
         return true;
