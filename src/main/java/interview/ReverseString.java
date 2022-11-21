@@ -14,7 +14,7 @@ public class ReverseString {
     }
 
     // 재귀로 뒤집기
-    // 꼬리재귀 X 콜스택이 계속쌓임 stackoverflow
+    // 꼬리재귀 X 스택메모리에 메서드가 계속쌓임 stackoverflow
     public String reverseByRecursion(String origin) {
         int len = origin.length();
         if (len == 0) return "";
@@ -26,7 +26,7 @@ public class ReverseString {
     }
 
     // 꼬리재귀로 뒤집기
-    // 스택메모리에 메서드 콜스택이 쌓이는 문제 해결
+    // 스택메모리에 메서드가 쌓이는 문제 해결
     // String = immutable 이므로 호출 떄마다 객체생성 -> gc 대상 증가
     public String reverseByTailRecursion(String origin) {
         return doReverseByTailRecursion("", origin);
