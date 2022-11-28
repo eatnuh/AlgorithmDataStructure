@@ -25,5 +25,5 @@ public class P81302 {
         return false;
     }
 
-        
+
 }
