@@ -18,12 +18,12 @@ public class QueueUsingTwoStack<E> {
         return pollStack.pop();
     }
 
-    private void move() {
-        while (!addStack.isEmpty()) pollStack.push(addStack.pop());
-    }
-
     public void add(E element) {
         addStack.push(element);
+    }
+
+    private void move() {
+        while (!addStack.isEmpty()) pollStack.push(addStack.pop());
     }
 
 }
