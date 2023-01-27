@@ -8,14 +8,14 @@ public class AddBinary {
         int i = a.length() - 1;
         int j = b.length() - 1;
 
-        while(i >= 0 || j >= 0) {
+        while (i >= 0 || j >= 0) {
             int sum = carry;
-            if(i >= 0) sum += a.charAt(i--) - '0';
-            if(j >= 0) sum += b.charAt(j--) - '0';
-            carry = sum > 1? 1 : 0;
+            if (i >= 0) sum += a.charAt(i--) - '0';
+            if (j >= 0) sum += b.charAt(j--) - '0';
+            carry = sum > 1 ? 1 : 0;
             answerBuilder.append(sum % 2);
         }
-        if(carry != 0) answerBuilder.append(carry);
+        if (carry != 0) answerBuilder.append(carry);
         return answerBuilder.reverse().toString();
     }
 }
